@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #00ffff;
+        color: #333;
+      }
+      
+      h1 {
+        margin-bottom: 20px;
+      }
+      
+      #tela {
+        width: 500px;
+        margin: 0 auto;
+      }
+      
+      .pontuacao {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      }
+      
+      .pontuacao strong {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      
+      .pontuacao #pontos {
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+      
+      .pontuacao #tempo {
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+      
+      .botao-90s {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        font-size: 1.2em;
+        font-weight: bold;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 30px;
+        box-shadow: 2px 2px 4px #888;
+        cursor: pointer;
+      }
+      
+      .botao-90s:hover {
+        background-color: #555;
+        box-shadow: 1px 1px 2px #888;
+      }
+      
+      .botao-mute {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+      .botao-mute img {
+        width: 24px;
+        height: 24px;
+      }
+      
+      #rank {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      #rankTableContainer {
+        margin-top: 10px;
+      }
+      
+      #rankTable {
+        border-collapse: collapse;
+        width: 250px;
+      }
+      
+      #rankTable th,
+      #rankTable td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #00ffff;
+      }
+      
+      #rankTable th {
+        background-color: #00ffff;
+        font-weight: bold;
+      }
+      
+    </style>
+
+    <title>¡Pegue os Kaios!</title>
+</head>
+<body>
+<h1>¡Pegue o Kaios!</h1>
+<button id="startButton" class="botao-90s" onclick="iniciaJogoComMusica()" >Iniciar Jogo</button>
+
+  <div id="tela" style="margin-top: 10px;"></div>
+
+  <div class="pontuacao">
+    <strong>Pontos:</strong>
+    <span id="pontos">0</span>
+  </div>
+
+  <div class="pontuacao">
+    <strong>Tempo:</strong>
+    <span id="tempo"></span>segundos
+  </div>
+
+  <audio id="musica" autoplay loop>
+      <source src="somFundo.mp3" type="audio/mp3">
+  </audio>
+
+  <button class="botao-mute" onclick="mutarSomFundo()">
+    <img id="iconeSom" src="somSim.png" alt="Som Ligado">
+  </button>
+  
+  <div id="rank">
+    <h2>Rank</h2>
+    <div id="rankTableContainer">
+      <table id="rankTable">
+        <thead>
+          <tr>
+            <th>Jogador</th>
+            <th>Pontos</th>
+            <th>Data de Jogo</th>
+          </tr>
+        </thead>
+        <tbody id="rankBody">
+          <!-- Linhas do rank serão adicionadas dinamicamente -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+
+  <script src="jogo.js"></script>
+</body>
+</html>
