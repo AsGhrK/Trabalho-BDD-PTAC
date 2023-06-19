@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="jogo.css">
-   
     <title>¡Pegue os Kaios!</title>
 </head>
+
 <body>
-<h1>¡Pegue os Kaios!</h1>
-<button id="startButton" class="botao-90s" onclick="iniciaJogoComMusica()" >Iniciar Jogo</button>
+    <!-- Título do jogo -->
+    <h1>¡Pegue os Kaios!</h1>
 
-  <div id="tela" style="margin-top: 10px;"></div>
+    <!-- Botão para iniciar o jogo -->
+    <button id="startButton" class="botao-90s" onclick="iniciaJogoComMusica()">Iniciar Jogo</button>
 
-  <div class="pontuacao">
-    <strong>Pontos:</strong>
-    <span id="pontos">0</span>
-  </div>
+    <!-- Div para exibir a tela do jogo -->
+    <div id="tela" style="margin-top: 10px;"></div>
 
-  <div class="pontuacao">
-    <strong>Tempo:</strong>
-    <span id="tempo"></span>segundos
-  </div>
-
-  <audio id="musica" autoplay loop>
-      <source src="somFundo.mp3" type="audio/mp3">
-  </audio>
-
-  <button class="botao-mute" onclick="mutarSomFundo()">
-    <img id="iconeSom" src="somSim.png" alt="Som Ligado">
-  </button>
-  
-  <div id="rank">
-    <h2>Rank</h2>
-    <div id="rankTableContainer">
-      <table id="rankTable">
-        <thead>
-          <tr>
-            <th>Jogador</th>
-            <th>Pontos</th>
-            <th>Data de Jogo</th>
-          </tr>
-        </thead>
-        <tbody id="rankBody">
-          <!-- Linhas do rank serão adicionadas dinamicamente -->
-        </tbody>
-      </table>
+    <!-- Div para exibir a pontuação do jogador -->
+    <div class="pontuacao">
+        <strong>Pontos:</strong>
+        <span id="pontos">0</span>
     </div>
-  </div>
-  
 
-  <script src="jogo.js"></script>
+    <!-- Div para exibir o tempo decorrido -->
+    <div class="pontuacao">
+        <strong>Tempo:</strong>
+        <span id="tempo"></span>segundos
+    </div>
+
+    <!-- Elemento de áudio para reproduzir a música de fundo -->
+    <audio id="musica" autoplay loop>
+        <source src="somFundo.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Botão para mutar/desmutar a música de fundo -->
+    <button class="botao-mute" onclick="mutarSomFundo()">
+        <img id="iconeSom" src="somSim.png" alt="Som Ligado">
+    </button>
+
+    <!-- Div para exibir o ranking -->
+    <div id="rank">
+        <h2>Rank</h2>
+        <div id="rankTableContainer">
+            <table id="rankTable">
+                <thead>
+                    <tr>
+                        <th>Jogador</th>
+                        <th>Pontos</th>
+                        <th>Data de Jogo</th>
+                    </tr>
+                </thead>
+                <tbody id="rankBody">
+                    <!-- Linhas do rank serão adicionadas dinamicamente -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Script para controlar a lógica do jogo -->
+    <script src="jogo.js"></script>
 </body>
+
 </html>
