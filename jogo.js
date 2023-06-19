@@ -3,7 +3,7 @@
 
 // Constantes
 const NUM_OBJETOS = 50;
-const TEMP_INICIAL = 25;
+const TEMP_INICIAL = 5;
 
 // Variáveis
 let pontos = 0;
@@ -79,7 +79,7 @@ function gameOver() {
   }
 
   // Solicita o nome do jogador
-  let nome = prompt("Digite o seu nome:");
+  let nome = prompt("Digite o seu nome:");             
   adicionarAoRank(nome, pontos);
 
   // Exibe a pontuação do jogador
@@ -96,6 +96,8 @@ function adicionarAoRank(nome, pontos) {
     nome: nome,
     pontos: pontos,
     data: new Date().toLocaleDateString(),
+
+    
   };
 
   // Adiciona o jogador ao array de dados do ranking
@@ -195,3 +197,22 @@ document.addEventListener("DOMContentLoaded", function() {
       console.error(error);
     });
 }); 
+
+
+
+
+
+/* let pontuacao = {
+  pontuacao: pontos,
+  nome: <nome do jogador>
+}
+
+fetch('http://localhost:9091/score', {
+  method: "POST",
+  body: JSON.stringify(pontuacao),
+  headers: {"Content-type": "application/json; charset=UTF-8"}
+})
+.then(response => response.json()) 
+.then(json => console.log(json));
+.catch(err => console.log(err));
+*/
