@@ -1,110 +1,128 @@
+/* Definição das regras de estilo CSS */
+
+/* Estilos para o elemento <body> */
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #00ffff;
-    color: #333;
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-  }
-  
-  #tela {
-    width: 500px;
-    margin: 0 auto;
-  }
-  
-  .pontuacao {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .pontuacao strong {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  .pontuacao #pontos {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-  
-  .pontuacao #tempo {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-  
-  .botao-90s {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 30px;
-    box-shadow: 2px 2px 4px #888;
-    cursor: pointer;
-  }
-  
-  .botao-90s:hover {
-    background-color: #555;
-    box-shadow: 1px 1px 2px #888;
-  }
-  
-  .botao-mute {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  .botao-mute img {
-    width: 24px;
-    height: 24px;
-  }
-  
-  #rank {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  #rankTableContainer {
-    margin-top: 10px;
-  }
-  
-  #rankTable {
-    border-collapse: collapse;
-    width: 250px;
-  }
-  
-  #rankTable th,
-  #rankTable td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #00ffff;
-  }
-  
-  #rankTable th {
-    background-color: #00ffff;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #00ffff;
+  color: #333;
+}
+
+/* Estilos para o cabeçalho <h1> */
+h1 {
+  margin-bottom: 20px;
+}
+
+/* Estilos para o elemento com ID "tela" */
+#tela {
+  width: 500px;
+  margin: 0 auto;
+}
+
+/* Estilos para a seção de pontuação */
+.pontuacao {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Estilos para o texto forte dentro da seção de pontuação */
+.pontuacao strong {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Estilos para o elemento com ID "pontos" dentro da seção de pontuação */
+.pontuacao #pontos {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Estilos para o elemento com ID "tempo" dentro da seção de pontuação */
+.pontuacao #tempo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Estilos para o botão "90s" */
+.botao-90s {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 2px 2px 4px #888;
+  cursor: pointer;
+}
+
+/* Estilos de hover para o botão "90s" */
+.botao-90s:hover {
+  background-color: #555;
+  box-shadow: 1px 1px 2px #888;
+}
+
+/* Estilos para o botão de mute */
+.botao-mute {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilos para a imagem dentro do botão de mute */
+.botao-mute img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Estilos para o elemento com ID "rank" */
+#rank {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilos para o contêiner da tabela de classificação */
+#rankTableContainer {
+  margin-top: 10px;
+}
+
+/* Estilos para a tabela de classificação */
+#rankTable {
+  border-collapse: collapse;
+  width: 250px;
+}
+
+/* Estilos para o cabeçalho e células da tabela de classificação */
+#rankTable th,
+#rankTable td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #00ffff;
+}
+
+/* Estilos para o cabeçalho da tabela de classificação */
+#rankTable th {
+  background-color: #00ffff;
+  font-weight: bold;
+}
