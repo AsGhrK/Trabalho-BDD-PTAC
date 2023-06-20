@@ -66,8 +66,26 @@ function contaTempo() {
     let musica = document.getElementById("musica");
     musica.pause();
     gameOver();
+   document.location.reload();
   }
 }
+function salvaDados(nome , pontos){
+  let pontuacao = {
+    pontos: pontos,
+    name : nome
+  }
+  
+  fetch('http://localhost:9091/score', {
+    method: "POST",
+    body: JSON.stringify(pontuacao),
+    headers: {"Content-type": "application/json; charset=UTF-8"}
+  })
+  .then(response => response.json()) 
+  .then(json => console.log(json))
+  .catch(err => console.log(err))
+}
+
+
 
 // Função chamada quando o jogo acaba
 function gameOver() {
@@ -81,7 +99,7 @@ function gameOver() {
   // Solicita o nome do jogador
   let nome = prompt("Digite o seu nome:");             
   adicionarAoRank(nome, pontos);
-
+  salvaDados(nome, pontos)
   // Exibe a pontuação do jogador
   alert("Parabéns! Você pegou " + pontos + " Kaios!");
 
@@ -95,49 +113,31 @@ function adicionarAoRank(nome, pontos) {
   const jogador = {
     nome: nome,
     pontos: pontos,
-    data: new Date().toLocaleDateString(),
-
-    
   };
-
-  // Adiciona o jogador ao array de dados do ranking
-  rankData.push(jogador);
-
-  // Ordena os jogadores pelo número de pontos (decrescente)
-  rankData.sort((a, b) => b.pontos - a.pontos);
-
-  // Atualiza o ranking na interface
-  atualizarRank();
 }
 
 // Função para atualizar o ranking na interface
-function atualizarRank() {
+function atualizarRank(name , pontos) {
   let rankBody = document.getElementById("rankBody");
-  rankBody.innerHTML = "";
-
-  for (let i = 0; i < rankData.length; i++) {
-    let jogador = rankData[i];
 
     // Cria uma nova linha na tabela para o jogador
     let row = document.createElement("tr");
     let nomeCell = document.createElement("td");
     let pontosCell = document.createElement("td");
-    let dataCell = document.createElement("td");
 
     // Define o conteúdo das células
-    nomeCell.innerText = jogador.nome;
-    pontosCell.innerText = jogador.pontos;
-    dataCell.innerText = jogador.data;
+    nomeCell.innerText = name;
+    pontosCell.innerText = pontos;
 
     // Adiciona as células à linha
     row.appendChild(nomeCell);
     row.appendChild(pontosCell);
-    row.appendChild(dataCell);
+   
 
     // Adiciona a linha ao corpo da tabela
     rankBody.appendChild(row);
-  }
 }
+
 
 // Função para mutar/desmutar o som de fundo
 function mutarSomFundo() {
@@ -176,43 +176,25 @@ document.addEventListener("DOMContentLoaded", function() {
     iniciaJogo();
   });
 
-  
-  
-
   // Faz uma requisição para obter os dados do ranking
-  fetch("http://localhost:9091/score")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Erro na requisição");
-      }
-      return response.json();
-    })
-    .then(data => {
-      const jogadores = data;
-      jogadores.forEach(jogador => {
-        criarElemento(jogador.name, jogador.pontos);
-      });
-    })
-    .catch(error => {
-      console.error(error);
-    });
+fetch("http://localhost:9091/score")
+.then(response => {
+  if (!response.ok) {
+    throw new Error("Erro na requisição");
+  }
+  return response.json();
+})
+.then(data => {
+  const jogadores = data;
+  console.log(data);
+  jogadores.forEach(jogador => {
+    atualizarRank(jogador.name, jogador.pontos);
+  });
+})
+.catch(error => {
+  console.error(error);
+});
 }); 
 
 
 
-
-
-/* let pontuacao = {
-  pontuacao: pontos,
-  nome: <nome do jogador>
-}
-
-fetch('http://localhost:9091/score', {
-  method: "POST",
-  body: JSON.stringify(pontuacao),
-  headers: {"Content-type": "application/json; charset=UTF-8"}
-})
-.then(response => response.json()) 
-.then(json => console.log(json));
-.catch(err => console.log(err));
-*/
