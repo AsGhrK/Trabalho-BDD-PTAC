@@ -3,7 +3,7 @@
 
 // Constantes
 const NUM_OBJETOS = 50;
-const TEMP_INICIAL = 5;
+const TEMP_INICIAL = 25;
 
 // Variáveis
 let pontos = 0;
